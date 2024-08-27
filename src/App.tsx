@@ -16,7 +16,7 @@ function App() {
 
   return (
     <main className="container flex justify-center items-center w-screen h-screen bg-secondary">
-      <div className="bg-card shadow-md w-80 min-h-96 max-h-screen mx-auto p-4">
+      <div className="relative bg-card shadow-md w-80 min-h-96 max-h-screen mx-auto p-4">
         <SearchInput
           defaultValue={search}
           onChange={(value) => setSearch(value)}
@@ -25,6 +25,10 @@ function App() {
         <div className="my-4">
           <TaskList tasks={tasks} />
         </div>
+
+        <button className="absolute bottom-4 right-4 bg-primary rounded-full text-background w-12 h-12">
+          <Plus className="mx-auto" />
+        </button>
       </div>
     </main>
   );
