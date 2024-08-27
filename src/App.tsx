@@ -4,14 +4,35 @@ import SearchInput from "./components/input";
 import TaskList from "./components/TaskList";
 import { Plus } from "lucide-react";
 
+export type TTaskStatus = "in-progress" | "completed" | "pending";
+
 export interface ITask {
   title: string;
   description: string;
-  status: "in-progress" | "completed" | "pending";
+  status: TTaskStatus;
 }
 
 function App() {
-  const [tasks, setTasks] = useState<ITask[]>([]);
+  const [tasks, setTasks] = useState<ITask[]>([
+    {
+      title: "Task 1",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia sunt optio sed harum iusto saepe ut quam laudantium nulla, soluta accusantium atque explicabo asperiores, doloribus, aspernatur quidem placeat reiciendis ad.",
+      status: "completed",
+    },
+    {
+      title: "Task 2",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia sunt optio sed harum iusto saepe ut quam laudantium nulla, soluta accusantium atque explicabo asperiores, doloribus, aspernatur quidem placeat reiciendis ad.",
+      status: "in-progress",
+    },
+    {
+      title: "Task 3",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia sunt optio sed harum iusto saepe ut quam laudantium nulla, soluta accusantium atque explicabo asperiores, doloribus, aspernatur quidem placeat reiciendis ad.",
+      status: "pending",
+    },
+  ]);
   const [search, setSearch] = useState("");
 
   return (
