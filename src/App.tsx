@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import "./App.css";
 import SearchInput from "./components/input";
 import TaskList from "./components/TaskList";
@@ -34,6 +34,11 @@ function App() {
     },
   ]);
   const [search, setSearch] = useState("");
+  const filteredTasks = useMemo(() => {
+    return tasks.filter((task) =>
+      task.title.toLowerCase().includes(search.trim().toLowerCase())
+    );
+  }, [search]);
 
   return (
     <main className="container flex justify-center items-center w-screen h-screen bg-secondary">
@@ -44,7 +49,7 @@ function App() {
         />
 
         <div className="my-4">
-          <TaskList tasks={tasks} />
+          <TaskList tasks={filteredTasks} />
         </div>
 
         <button className="absolute bottom-4 right-4 bg-primary rounded-full text-background w-12 h-12">
