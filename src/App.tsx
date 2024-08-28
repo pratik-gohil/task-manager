@@ -29,7 +29,7 @@ function App() {
           element: <AddTodo />,
         },
         {
-          path: "edit/:todoId",
+          path: "edit/:taskId",
           element: <EditTodo />,
         },
       ],

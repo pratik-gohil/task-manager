@@ -9,29 +9,24 @@ import {
 import StatusChip from "./StatusChip";
 import { TTaskStatus } from "@/types/task";
 
-const statuses: IStatusSelect[] = [
-  {
-    value: "in-progress",
-    label: "In Progress",
-  },
-  {
-    value: "completed",
-    label: "Completed",
-  },
-  {
-    value: "pending",
-    label: "Pending",
-  },
-];
+const statuses: IStatusSelect = {
+  "in-progress": "In Progress",
+  completed: "Completed",
+  pending: "Pending",
+};
 
-interface IStatusSelect {
-  value: TTaskStatus;
-  label: string;
-}
+type IStatusSelect = {
+  [key in TTaskStatus]: string;
+};
 
-export default function SelectStatus() {
+export default function SelectStatus({
+  status,
+  setStatus,
+}: {
+  status: TTaskStatus;
+  setStatus: React.Dispatch<React.SetStateAction<TTaskStatus>>;
+}) {
   const [open, setOpen] = React.useState(false);
-  const [status, setStatus] = React.useState<IStatusSelect>();
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -44,7 +39,7 @@ export default function SelectStatus() {
         >
           <div className="w-fit">
             {status ? (
-              <StatusChip status={status.value} label={status.label} />
+              <StatusChip status={status} label={statuses[status]} />
             ) : (
               "Select status..."
             )}
@@ -56,13 +51,13 @@ export default function SelectStatus() {
         align="start"
         className="p-2 w-[var(--radix-popover-trigger-width)]"
       >
-        {statuses.map((status) => (
+        {Object.entries(statuses).map(([key, value]: any) => (
           <div
-            key={status.value}
-            onClick={() => setStatus(status)}
+            key={key}
+            onClick={() => setStatus(key)}
             className="hover:bg-secondary p-2 cursor-pointer"
           >
-            <StatusChip status={status.value} label={status.label} />
+            <StatusChip status={key} label={value} />
           </div>
         ))}
       </PopoverContent>
