@@ -38,7 +38,7 @@ function TaskItem({ tasks, title, identifier }: ITaskItem) {
             </div>
             <div className="ml-10 font-medium">{task.description}</div>
             <div className="ml-10 mt-2 text-muted-foreground">
-              <span>{task.createdAt.toDateString()}</span>
+              <span>{new Date(task.createdAt).toDateString()}</span>
 
               <div className="inline-flex gap-2 float-right group-hover:visible invisible">
                 <Link to={`/edit/${task.id}`}>
