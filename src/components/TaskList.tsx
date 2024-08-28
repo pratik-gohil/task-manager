@@ -1,10 +1,10 @@
-import { ITask, TTaskStatus } from "@/App";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { ITask, TTaskStatus } from "@/types/task";
 import { useCallback } from "react";
 
 interface ITaskList {
