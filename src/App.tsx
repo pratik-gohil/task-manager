@@ -11,7 +11,7 @@ function App() {
       path: "/",
       element: (
         <main className="container flex justify-center items-center w-screen h-screen bg-secondary">
-          <div className="relative bg-card shadow-md w-80 min-h-96 max-h-screen mx-auto">
+          <div className="relative bg-card shadow-md w-full md:max-w-80 md:max-h-[90%] h-full mx-auto overflow-auto">
             <Header />
             <div className="p-4">
               <Outlet />

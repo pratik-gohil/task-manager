@@ -68,6 +68,7 @@ export default function SelectStatus() {
       <PopoverContent className="p-2">
         {statuses.map((status) => (
           <div
+            key={status.value}
             onClick={() => setStatus(status)}
             className="hover:bg-secondary p-2 cursor-pointer"
           >

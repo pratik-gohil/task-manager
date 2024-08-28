@@ -33,7 +33,7 @@ function TaskList({ tasks }: ITaskList) {
         </AccordionTrigger>
         <AccordionContent className="pb-0">
           {inProgressTasks.map((task) => (
-            <div>{task.title}</div>
+            <div key={task.title}>{task.title}</div>
           ))}
         </AccordionContent>
       </AccordionItem>
@@ -45,7 +45,7 @@ function TaskList({ tasks }: ITaskList) {
         </AccordionTrigger>
         <AccordionContent className="pb-0">
           {pendingTasks.map((task) => (
-            <div>{task.title}</div>
+            <div key={task.title}>{task.title}</div>
           ))}
         </AccordionContent>
       </AccordionItem>
@@ -57,7 +57,7 @@ function TaskList({ tasks }: ITaskList) {
         </AccordionTrigger>
         <AccordionContent className="pb-0">
           {completedTasks.map((task) => (
-            <div>{task.title}</div>
+            <div key={task.title}>{task.title}</div>
           ))}
         </AccordionContent>
       </AccordionItem>
