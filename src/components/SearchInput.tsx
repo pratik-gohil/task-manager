@@ -13,7 +13,7 @@ export default function SearchInput({
   placeholder = "Search...",
 }: ISearchInput) {
   return (
-    <div className="relative flex items-center w-full max-w-sm">
+    <div className="relative flex items-center w-full">
       <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-primary pointer-events-none" />
       <Input
         type="search"

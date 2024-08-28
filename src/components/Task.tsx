@@ -5,6 +5,8 @@ import {
 } from "@/components/ui/accordion";
 import { ITask, TTaskStatus } from "@/types/task";
 import StatusChip from "./StatusChip";
+import { Edit2, Trash2 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface ITaskItem {
   tasks: ITask[];
@@ -20,7 +22,7 @@ function TaskItem({ tasks, title, identifier }: ITaskItem) {
           {title} ({tasks.length})
         </span>
       </AccordionTrigger>
-      <AccordionContent className="pb-0 mt-2">
+      <AccordionContent className="group pb-0 mt-2">
         {tasks.map((task) => (
           <div className="p-2 hover:bg-secondary" key={task.title}>
             <div className="">
@@ -35,6 +37,20 @@ function TaskItem({ tasks, title, identifier }: ITaskItem) {
               </span>
             </div>
             <div className="ml-10 font-medium">{task.description}</div>
+            <div className="ml-10 mt-2 text-muted-foreground">
+              <span>{task.createdAt.toDateString()}</span>
+
+              <div className="inline-flex gap-2 float-right group-hover:visible invisible">
+                <Link to={`/edit/${task.id}`}>
+                  <Edit2 size={20} className="text-primary cursor-pointer" />
+                </Link>
+                <Trash2
+                  onClick={() => alert("delete")}
+                  size={20}
+                  className="text-destructive cursor-pointer"
+                />
+              </div>
+            </div>
           </div>
         ))}
       </AccordionContent>

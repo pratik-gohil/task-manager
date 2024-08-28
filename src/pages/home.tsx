@@ -8,24 +8,32 @@ import { ITask } from "@/types/task";
 function Home() {
   const [tasks, setTasks] = useState<ITask[]>([
     {
+      id: "1",
       title: "Task 1",
       description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
       status: "completed",
+      createdAt: new Date(),
     },
     {
+      id: "1",
       title: "Task 2",
       description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
       status: "in-progress",
+      createdAt: new Date(),
     },
     {
+      id: "1",
       title: "Task 4",
       description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
       status: "pending",
+      createdAt: new Date(),
     },
     {
+      id: "1",
       title: "Task 3",
       description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
       status: "pending",
+      createdAt: new Date(),
     },
   ]);
   const [search, setSearch] = useState("");
