@@ -9,16 +9,6 @@ import {
 import StatusChip from "./StatusChip";
 import { TTaskStatus } from "@/types/task";
 
-const statuses: IStatusSelect = {
-  "in-progress": "In Progress",
-  completed: "Completed",
-  pending: "Pending",
-};
-
-type IStatusSelect = {
-  [key in TTaskStatus]: string;
-};
-
 export default function SelectStatus({
   status,
   setStatus,

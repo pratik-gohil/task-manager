@@ -1,5 +1,3 @@
-export type TTaskStatus = "in-progress" | "completed" | "pending";
-
 export interface ITask {
  id: string;
  title: string;
@@ -7,3 +5,9 @@ export interface ITask {
  status: TTaskStatus;
  createdAt: Date;
 }
+
+export type TTaskStatus = "in-progress" | "completed" | "pending";
+
+export type IStatusSelect = {
+ [key in TTaskStatus]: string;
+};

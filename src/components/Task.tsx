@@ -8,6 +8,7 @@ import StatusChip from "./StatusChip";
 import { Edit2, Trash2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
+import { statuses } from "@/constants/status";
 
 interface ITaskItem {
   tasks: ITask[];
@@ -40,7 +41,10 @@ function TaskItem({ tasks, title, identifier }: ITaskItem) {
                 {task.title}
               </span>
               <span className="font-medium align-middle inline-block leading-normal float-right">
-                <StatusChip status={task.status} label={task.status} />
+                <StatusChip
+                  status={task.status}
+                  label={statuses[task.status]}
+                />
               </span>
             </div>
             <div className="ml-10 font-medium">{task.description}</div>
