@@ -9,26 +9,22 @@ function Home() {
   const [tasks, setTasks] = useState<ITask[]>([
     {
       title: "Task 1",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia sunt optio sed harum iusto saepe ut quam laudantium nulla, soluta accusantium atque explicabo asperiores, doloribus, aspernatur quidem placeat reiciendis ad.",
+      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
       status: "completed",
     },
     {
       title: "Task 2",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia sunt optio sed harum iusto saepe ut quam laudantium nulla, soluta accusantium atque explicabo asperiores, doloribus, aspernatur quidem placeat reiciendis ad.",
+      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
       status: "in-progress",
     },
     {
       title: "Task 4",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia sunt optio sed harum iusto saepe ut quam laudantium nulla, soluta accusantium atque explicabo asperiores, doloribus, aspernatur quidem placeat reiciendis ad.",
+      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
       status: "pending",
     },
     {
       title: "Task 3",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia sunt optio sed harum iusto saepe ut quam laudantium nulla, soluta accusantium atque explicabo asperiores, doloribus, aspernatur quidem placeat reiciendis ad.",
+      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
       status: "pending",
     },
   ]);
