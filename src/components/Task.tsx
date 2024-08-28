@@ -7,6 +7,7 @@ import { ITask, TTaskStatus } from "@/types/task";
 import StatusChip from "./StatusChip";
 import { Edit2, Trash2 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useLocalStorage } from "@/hooks/useLocalStorage";
 
 interface ITaskItem {
   tasks: ITask[];
@@ -15,6 +16,12 @@ interface ITaskItem {
 }
 
 function TaskItem({ tasks, title, identifier }: ITaskItem) {
+  const [_, setTasks] = useLocalStorage<ITask[]>("tasks", []);
+
+  const handleTaskDelete = (id: string) => {
+    setTasks((tasks) => tasks.filter((task) => task.id !== id));
+  };
+
   return (
     <AccordionItem className="border-none mb-4" value={identifier}>
       <AccordionTrigger className="flex justify-between px-4 py-2 bg-muted rounded-md no-underline hover:no-underline">
@@ -45,7 +52,7 @@ function TaskItem({ tasks, title, identifier }: ITaskItem) {
                   <Edit2 size={20} className="text-primary cursor-pointer" />
                 </Link>
                 <Trash2
-                  onClick={() => alert("delete")}
+                  onClick={() => handleTaskDelete(task.id)}
                   size={20}
                   className="text-destructive cursor-pointer"
                 />

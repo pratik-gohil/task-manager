@@ -7,13 +7,13 @@ import { ITask } from "@/types/task";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
 
 function Home() {
-  const [tasks, setTasks] = useLocalStorage<ITask[]>("tasks", []);
+  const [tasks, _] = useLocalStorage<ITask[]>("tasks", []);
   const [search, setSearch] = useState("");
   const filteredTasks = useMemo(() => {
     return tasks.filter((task) =>
       task.title.toLowerCase().includes(search.trim().toLowerCase())
     );
-  }, [search]);
+  }, [tasks, search]);
 
   return (
     <>
