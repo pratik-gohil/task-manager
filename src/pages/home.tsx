@@ -4,38 +4,10 @@ import TaskList from "@/components/TaskList";
 import { Plus } from "lucide-react";
 import { Link } from "react-router-dom";
 import { ITask } from "@/types/task";
+import { useLocalStorage } from "@/hooks/useLocalStorage";
 
 function Home() {
-  const [tasks, setTasks] = useState<ITask[]>([
-    {
-      id: "1",
-      title: "Task 1",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-      status: "completed",
-      createdAt: new Date(),
-    },
-    {
-      id: "1",
-      title: "Task 2",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-      status: "in-progress",
-      createdAt: new Date(),
-    },
-    {
-      id: "1",
-      title: "Task 4",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-      status: "pending",
-      createdAt: new Date(),
-    },
-    {
-      id: "1",
-      title: "Task 3",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-      status: "pending",
-      createdAt: new Date(),
-    },
-  ]);
+  const [tasks, setTasks] = useLocalStorage<ITask[]>("tasks", []);
   const [search, setSearch] = useState("");
   const filteredTasks = useMemo(() => {
     return tasks.filter((task) =>
