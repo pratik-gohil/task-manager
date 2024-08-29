@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/popover";
 import StatusChip from "./StatusChip";
 import { TTaskStatus } from "@/types/task";
+import { statuses } from "@/constants/status";
 
 export default function SelectStatus({
   status,
